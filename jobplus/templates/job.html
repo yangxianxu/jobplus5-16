@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="job-list">
+    <h2 class="h4 mt40 job-list-title">最新职位</h2>
+    <div class="job-list-item row" deep="4">
+    {% for job in pagination.items %}
+    <div class="col-md-6 job-list-item-block">
+        <a href="" class="job-name nowrap"></a>
+        <span class="text-muted city"> [ ]</span>
+        <div class="text-muted job-require"><strong class="text-green"></strong></div>
+        <p class="text-muted company-info"><a href=""></a> 3 days ago</p>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{{ render_pagination(pagination, 'job.index') }}
