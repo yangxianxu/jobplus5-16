@@ -1,4 +1,6 @@
 from flask import Blueprint
+from flask import render_template
+from jobplus.models import Job
 
 job = Blueprint('job', __name__, url_prefix='/job')
 
@@ -11,3 +13,9 @@ def index():
         error_out=False
         )
     return render_template('job.html',pagination=pagination)
+
+@job.route('/<int:job_id>')
+def detail(job_id):
+    job = Job.query.get_or_404(job_id)
+    return render_template('job/detail.html',job=job)
+

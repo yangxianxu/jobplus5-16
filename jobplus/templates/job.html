@@ -5,12 +5,13 @@
     <div class="job-list-item row" deep="4">
     {% for job in pagination.items %}
     <div class="col-md-6 job-list-item-block">
-        <a href="" class="job-name nowrap"></a>
-        <span class="text-muted city"> [ ]</span>
-        <div class="text-muted job-require"><strong class="text-green"></strong></div>
-        <p class="text-muted company-info"><a href=""></a> 3 days ago</p>
+        <a href="" class="job-name nowrap">{{ job.name }}</a>
+        <span class="text-muted city"> [{{ job.work_address }} ]</span>
+        <div class="text-muted job-require"><strong class="text-green">{{ salary_down }}-{{ salary_up }}</strong>{{ exper_need }}/{{ job_need }}</div>
+        <p class="text-muted company-info"><a href="">{{ job.company.companyname }}</a> {{ job.create_at }}</p>
     </div>
     {% endfor %}
     </div>
 </div>
 {{ render_pagination(pagination, 'job.index') }}
+{% endblock %}
